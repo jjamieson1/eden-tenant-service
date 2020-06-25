@@ -8,16 +8,23 @@ module:testrunner
 
 
 GET     /                                       App.Index
+GET     /api/tenant/provider/type/:providerType                     Api.GetAllAvailableProvidersByType
 GET     /api/tenant/provider/:providerType/:tenantId                Api.GetTenantServiceProvidersByType
 GET     /api/tenant/provider/:tenantId                              Api.GetAllProvidersForTenant
 POST    /api/tenant/provider/userservice/:tenantId/:provider        Api.SetTenantUserServiceProvider
 
 #Manage Tenancy
+GET     /api/tenant/children/:tenantId                                      Api.GetAllChildrenOfTenant
 GET     /api/tenant/details/:tenantId                                       Api.GetTenantById
 GET     /api/tenant/details/url/:url                                        Api.GetTenantByUrl
 POST    /api/tenant/details                                                 Api.AddNewTenant
 PUT    /api/tenant/details/:tenantId                                       Api.UpdateTenant
 DELETE  /api/tenant/details/:tenantId                                       Api.DeleteTenant
+
+GET     /api/tenant/type                                                    Api.GetTenantType
+POST     /api/tenant/type                                                    Api.AddTenantType
+DELETE   /api/tenant/type                                                    Api.DeleteTenantType
+PUT     /api/tenant/type                                                     Api.UpdateTenantType
 
 
 

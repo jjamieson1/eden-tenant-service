@@ -14,6 +14,15 @@ func (c Api) GetTenantServiceProvidersByType(tenantId, providerType string) reve
 	return c.RenderJSON(tenantProviders)
 }
 
+func (c Api) GetAllAvailableProvidersByType(providerType string) revel.Result {
+	tenantProviders, err :=  services.GetProviderByType(providerType)
+	if err != nil {
+		c.Response.SetStatus(400)
+		return c.Result
+	}
+	return c.RenderJSON(tenantProviders)
+}
+
 
 func (c Api) GetAllProvidersForTenant(tenantId string) revel.Result {
 	tenantProviders, err :=  services.GetAllProvidersForTenant(tenantId)
